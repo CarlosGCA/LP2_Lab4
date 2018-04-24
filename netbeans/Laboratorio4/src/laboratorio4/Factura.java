@@ -11,6 +11,8 @@ package laboratorio4;
  */
 public class Factura extends DocumentoPago {
     private int ruc;
+    private String razonSocial;
+    private float igv_Factura;
     
     public Factura(String idDoc,float total,int idPedido,Cliente cliente,boolean registrada, int ruc){
         super(idDoc, total, idPedido, cliente, registrada);

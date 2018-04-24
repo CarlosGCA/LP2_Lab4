@@ -11,6 +11,9 @@ package laboratorio4;
  */
 public class Boleta extends DocumentoPago{
     
+    private int dni;
+    private String nombre;
+    private float igv_Boleta;
     public Boleta(String idDoc,float total,int idPedido,Cliente cliente,boolean registrada, int ruc){
         super(idDoc, total, idPedido, cliente, registrada);
     }
