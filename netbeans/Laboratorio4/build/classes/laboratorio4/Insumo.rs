@@ -1,2 +1,0 @@
-laboratorio4.Insumo
-laboratorio4.unidadMed

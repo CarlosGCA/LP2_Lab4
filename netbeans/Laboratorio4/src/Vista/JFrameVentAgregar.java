@@ -14,7 +14,7 @@ public class JFrameVentAgregar extends javax.swing.JFrame {
     /**
      * Creates new form JFrameVentAgregar
      */
-    public JFrameVentAgregar() {
+    public JFrameVentAgregar(){
         initComponents();
         setLocationRelativeTo(null);
         setResizable(false);
@@ -76,7 +76,12 @@ public class JFrameVentAgregar extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameVentAgregar().setVisible(true);
+                try{
+                    new JFrameVentAgregar().setVisible(true);
+                }catch(Exception e){
+                    System.out.println(e.getMessage());
+                }
+                //new JFrameVentAgregar().setVisible(true);
             }
         });
     }
