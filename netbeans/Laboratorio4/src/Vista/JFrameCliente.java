@@ -183,7 +183,7 @@ public class JFrameCliente extends javax.swing.JFrame {
         lblImagEmpresa.setMinimumSize(new java.awt.Dimension(50, 50));
         lblImagEmpresa.setPreferredSize(new java.awt.Dimension(100, 100));
 
-        lblImagPersona.setIcon(new javax.swing.ImageIcon("C:\\Users\\kathe\\Pictures\\personita.png")); // NOI18N
+        lblImagPersona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/personita.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -286,7 +286,7 @@
     <Component class="javax.swing.JLabel" name="lblImagPersona">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\kathe\Pictures\personita.png"/>
+          <Image iconType="3" name="/Vista/personita.png"/>
         </Property>
       </Properties>
     </Component>
