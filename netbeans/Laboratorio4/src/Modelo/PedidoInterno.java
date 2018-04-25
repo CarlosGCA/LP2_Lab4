@@ -3,24 +3,28 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
-public class PedidoInsumo{
+public class PedidoInterno{
+        private estadoPedido estadoPed;
         private int idPedido;
-	private estadoPedido estadoPed;
-	
+
 	private Date fechaRegPed;
 	private Date fechaEntrPed;
     
-	private ArrayList<Ingrediente> listaInsumoPedido;
+	private ArrayList<LineaPedidoInterno> listaLineasPedido;
 	private Almacen almacenOrigen;
 	private Almacen almacenFin;
 	
-	public PedidoInsumo(Almacen almacenOrigen,Almacen almacenFin){
+	public PedidoInterno(Almacen almacenOrigen,Almacen almacenFin){
 		this.almacenOrigen=almacenOrigen;
-		this.almacenFin=almacenFin;		
-		listaInsumoPedido=new ArrayList<Ingrediente>();
+		this.almacenFin=almacenFin;	
+                this.fechaEntrPed = new Date();
+                this.fechaRegPed = new Date();
+		listaLineasPedido=new ArrayList<LineaPedidoInterno>();
 	}
-	public PedidoInsumo(){
-		listaInsumoPedido=new ArrayList<Ingrediente>();
+	public PedidoInterno(){
+                this.fechaEntrPed = new Date();
+                this.fechaRegPed = new Date();
+		listaLineasPedido=new ArrayList<LineaPedidoInterno>();
 	}
 	
 	public void setidPedido(int idPedido){
@@ -51,11 +55,11 @@ public class PedidoInsumo{
 	public Date getfechaEntrPed(){
 		return this.fechaEntrPed;
 	}
-	public void setlistaInsumoPedido(ArrayList<Ingrediente> listaInsumoPedido){
-		this.listaInsumoPedido=listaInsumoPedido;
+	public void setlistaInsumoPedido(ArrayList<LineaPedidoInterno> listaInsumoPedido){
+		this.listaLineasPedido=listaInsumoPedido;
 	}
-	public ArrayList<Ingrediente> getlistaInsumoPedido(){
-		return this.listaInsumoPedido;
+	public ArrayList<LineaPedidoInterno> getlistaInsumoPedido(){
+		return this.listaLineasPedido;
 	}
 	
 	public void setalmacenOrigen(Almacen almacenOrigen){
@@ -72,6 +76,7 @@ public class PedidoInsumo{
 		return this.almacenFin;
 	}
 	
-	public void realizarPedidoInsumo(int codInsumo,int cant){
+	public void agregarLinea(LineaPedidoInterno nIngr){
+            listaLineasPedido.add(nIngr);
 	}
 }

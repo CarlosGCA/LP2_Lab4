@@ -11,15 +11,15 @@ public class PedidoProducto{
 	private Date fechaEntrPed;
 	
 	private Cliente cliente;
-	private ArrayList<Integer> listproductos;
-	private ArrayList<Integer> listcantidades;
+	private ArrayList<LineaPedidoProducto> listaLineasPedido;
 	private DocumentoPago documPago;
 	
 	public PedidoProducto(Cliente cliente,DocumentoPago documPago){
 		this.cliente=cliente;
 		this.documPago=documPago;
-		listcantidades= new ArrayList<Integer>();
-		listproductos= new ArrayList<Integer>();
+		listaLineasPedido= new ArrayList<LineaPedidoProducto>();
+                this.fechaEntrPed = new Date();
+                this.fechaRegPed = new Date();
 		// this.idPedido=idPedido;
 		// this.estadoPed=estadoPed;
 		// //this.cuentaUs=cuentaUs;
@@ -41,6 +41,12 @@ public class PedidoProducto{
 			// output="error";
 		// }	
 	}
+        
+        public PedidoProducto(){
+            this.listaLineasPedido=new ArrayList<LineaPedidoProducto>();
+            this.fechaEntrPed = new Date();
+            this.fechaRegPed = new Date();
+        }
 	
 	public void setidPedido(int idPedido){
 		this.idPedido=idPedido;
@@ -85,19 +91,7 @@ public class PedidoProducto{
 	public DocumentoPago getdocumPago(){
 		return this.documPago;		
 	}
-	
-	public ArrayList<Integer> getlistproductos(){
-		return listproductos;
-	}
-		
-		
-	public ArrayList<Integer> getlistcantidades(){
-		return listcantidades;
-	}
-	
-	public void RealizarPedidoProducto(int codProd,int cant){
-	}
-	
+	  
 	public int subtotal(){
 		//solo para compilar
 		return 1;
@@ -106,7 +100,10 @@ public class PedidoProducto{
 	public void registrarDocPago(){
 	}
 	
-	public void imprimirDocPago(){
-		
+	public void imprimirDocPago(){	
+	}
+        
+        public void agregarLinea(LineaPedidoProducto nIngr){
+            listaLineasPedido.add(nIngr);
 	}
 }
