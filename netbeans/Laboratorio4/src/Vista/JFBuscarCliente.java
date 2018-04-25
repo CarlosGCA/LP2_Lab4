@@ -139,7 +139,7 @@ public class JFBuscarCliente extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try{
-                    new JFBuscarCliente().setVisible(true);
+                    //new JFBuscarCliente().setVisible(true);
                 }catch(Exception ex){
                     System.out.println(ex.getMessage());
                 }
