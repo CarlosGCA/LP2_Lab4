@@ -27,10 +27,8 @@
               <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jButton1" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="btnCliente" min="-2" pref="256" max="-2" attributes="0"/>
-                      <Component id="btnPedidos" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="btnCliente" min="-2" pref="256" max="-2" attributes="0"/>
+                  <Component id="btnPedidos" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="214" max="32767" attributes="0"/>
           </Group>
@@ -71,6 +69,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="CERRAR SESI&#xd3;N"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

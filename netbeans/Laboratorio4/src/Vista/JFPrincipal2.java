@@ -27,6 +27,7 @@ public class JFPrincipal2 extends javax.swing.JFrame {
         btnCliente.setIcon(im2);
         
         ImageIcon imF = new javax.swing.ImageIcon("C:\\Users\\kathe\\Pictures\\carrito.jpg");
+        //ImageIcon imF = new javax.swing.ImageIcon("...\\carrito.jpg");
         Image image = imF.getImage();
         Image newIm = image.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
         ImageIcon img2 = new ImageIcon(newIm);
@@ -63,6 +64,11 @@ public class JFPrincipal2 extends javax.swing.JFrame {
         });
 
         jButton1.setText("CERRAR SESIÓN");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,9 +78,8 @@ public class JFPrincipal2 extends javax.swing.JFrame {
                 .addGap(185, 185, 185)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(214, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -103,6 +108,11 @@ public class JFPrincipal2 extends javax.swing.JFrame {
         JFramePedidos obje= new JFramePedidos();
         obje.setVisible(true);
     }//GEN-LAST:event_btnPedidosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        super.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

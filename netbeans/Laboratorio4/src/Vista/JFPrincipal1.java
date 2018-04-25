@@ -19,14 +19,7 @@ public class JFPrincipal1 extends javax.swing.JFrame {
      */
     public JFPrincipal1() throws Exception{
         initComponents();
-//        ImageIcon imI = new javax.swing.ImageIcon("C:\\Users\\kathe\\Pictures\\iconoClientes.png");
-//        Image img = imI.getImage();
-//        Image newi = img.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
-//        ImageIcon im2 = new ImageIcon(newi);
-//        JPanelFoto.setIcon(im2);
-//        JPanelFoto = new JPanelFoto();
-//        JPanelFoto.add(new ImageIcon("C:\\Users\\kathe\\Pictures\\usuario.png"));
-//        JPanelFoto.setVisible(false);
+//    
     }
 
     /**
@@ -61,6 +54,11 @@ public class JFPrincipal1 extends javax.swing.JFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/usuario.png"))); // NOI18N
 
@@ -126,6 +124,11 @@ public class JFPrincipal1 extends javax.swing.JFrame {
         //this.setVisible(false);
         this.setVisible(false);
     }//GEN-LAST:event_btnIngresarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        super.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
