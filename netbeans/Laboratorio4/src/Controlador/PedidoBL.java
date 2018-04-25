@@ -13,12 +13,12 @@ import AccesoData.PedidoAD;
  * @author Kathy Ruiz :)
  */
 public class PedidoBL {
-    private PedidoAD acceso;
-    public PedidoBL(){
-        acceso = new PedidoAD();
-    }
-    
-    public ArrayList<Pedido> obtenerLista(){
-        return  acceso.obtenerLista();
-    }
+//    private PedidoAD acceso;
+//    public PedidoBL(){
+//        acceso = new PedidoAD();
+//    }
+//    
+//    public ArrayList<Pedido> obtenerLista(){
+//        return  acceso.obtenerLista();
+//    }
 }

@@ -41,13 +41,13 @@ public class JFrameCliente extends javax.swing.JFrame {
         lblNombre2 = new javax.swing.JLabel();
         txtNombre2 = new javax.swing.JTextField();
         btnAgregarCliente = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
         txtDireccion = new javax.swing.JTextField();
         lblTelefono = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        lblCuentaBan = new javax.swing.JLabel();
         txtCuentaBan = new javax.swing.JTextField();
-        lblEmail = new javax.swing.JLabel();
+        lblCorreo = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         btnCerrar = new javax.swing.JButton();
         lblImagEmpresa = new javax.swing.JLabel();
@@ -86,13 +86,19 @@ public class JFrameCliente extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Dirección:");
+        lblDireccion.setText("Dirección:");
+
+        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDireccionActionPerformed(evt);
+            }
+        });
 
         lblTelefono.setText("Teléfono:");
 
-        jLabel3.setText("Cuenta Bancaria:");
+        lblCuentaBan.setText("Cuenta Bancaria:");
 
-        lblEmail.setText("E-mail:");
+        lblCorreo.setText("Correo:");
 
         btnCerrar.setText("Cerrar");
         btnCerrar.addActionListener(new java.awt.event.ActionListener() {
@@ -110,13 +116,13 @@ public class JFrameCliente extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(36, 36, 36)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCuentaBan, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblRUC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblNombre1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblNombre2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblCorreo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(56, Short.MAX_VALUE)
@@ -150,7 +156,7 @@ public class JFrameCliente extends javax.swing.JFrame {
                     .addComponent(txtNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(lblDireccion)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -158,11 +164,11 @@ public class JFrameCliente extends javax.swing.JFrame {
                     .addComponent(lblTelefono))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
+                    .addComponent(lblCuentaBan)
                     .addComponent(txtCuentaBan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEmail)
+                    .addComponent(lblCorreo)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -229,10 +235,16 @@ public class JFrameCliente extends javax.swing.JFrame {
         if(cboTipo.getSelectedItem()=="Empresa"){
             lblRUC.setText("RUC");
             lblNombre1.setText("Razon Social");
-            lblNombre2.setVisible(false);
-            txtNombre2.setVisible(false);
+            //lblNombre2.setVisible(false);
+            //txtNombre2.setVisible(false);
             lblImagEmpresa.setVisible(true);
             lblImagPersona.setVisible(false);
+            lblNombre2.setText("Direccion:");
+            lblDireccion.setText("Telefono");
+            lblTelefono.setText("Cuenta Bancaria");
+            lblCuentaBan.setText("Correo");
+            lblCorreo.setVisible(false);
+            txtEmail.setVisible(false);
         }else{
             lblRUC.setText("DNI");
             lblNombre1.setText("Nombre");
@@ -256,6 +268,10 @@ public class JFrameCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Se ha agregado con éxito", "Ventana Clientes", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnAgregarClienteActionPerformed
+
+    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDireccionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,10 +318,10 @@ public class JFrameCliente extends javax.swing.JFrame {
     private javax.swing.JButton btnCerrar;
     private javax.swing.JComboBox<String> cboTipo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblCorreo;
+    private javax.swing.JLabel lblCuentaBan;
+    private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblImagEmpresa;
     private javax.swing.JLabel lblImagPersona;
     private javax.swing.JLabel lblNombre1;

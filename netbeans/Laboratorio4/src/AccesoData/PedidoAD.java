@@ -14,8 +14,7 @@ import Modelo.Pedido;
  */
 public class PedidoAD {
 
-    public ArrayList<Pedido> obtenerLista() {
-        
-
-    }
+    //public ArrayList<Pedido> obtenerLista() {
+//        return;
+//    }
 }

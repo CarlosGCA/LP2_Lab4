@@ -6,7 +6,10 @@
 package Vista;
 
 import java.awt.Image;
+import java.awt.TextField;
 import javax.swing.ImageIcon;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
 /**
  *
@@ -34,11 +37,11 @@ public class JFPrincipal1 extends javax.swing.JFrame {
         lblUsuario = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         lblContrasena = new javax.swing.JLabel();
-        txtContra = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -64,12 +67,18 @@ public class JFPrincipal1 extends javax.swing.JFrame {
 
         jLabel2.setText("LOGIN:");
 
+        jPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addComponent(jLabel1))
@@ -82,8 +91,8 @@ public class JFPrincipal1 extends javax.swing.JFrame {
                             .addComponent(lblContrasena)
                             .addComponent(lblUsuario))
                         .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtContra, javax.swing.GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPassword)
                             .addComponent(txtUsuario)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
@@ -106,7 +115,7 @@ public class JFPrincipal1 extends javax.swing.JFrame {
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblContrasena)
-                    .addComponent(txtContra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(56, 56, 56)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIngresar)
@@ -129,6 +138,11 @@ public class JFPrincipal1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         super.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void jPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordActionPerformed
+        // TODO add your handling code here:
+        JPasswordField password = new JPasswordField();
+    }//GEN-LAST:event_jPasswordActionPerformed
 
     /**
      * @param args the command line arguments
@@ -175,9 +189,9 @@ public class JFPrincipal1 extends javax.swing.JFrame {
     private javax.swing.JButton btnIngresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPasswordField jPassword;
     private javax.swing.JLabel lblContrasena;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JTextField txtContra;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

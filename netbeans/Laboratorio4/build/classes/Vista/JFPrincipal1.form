@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -40,8 +40,8 @@
                           <Component id="lblUsuario" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtContra" pref="138" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPassword" max="32767" attributes="0"/>
                           <Component id="txtUsuario" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -71,7 +71,7 @@
               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblContrasena" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtContra" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPassword" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -95,8 +95,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtContra">
     </Component>
     <Component class="javax.swing.JButton" name="btnIngresar">
       <Properties>
@@ -125,6 +123,11 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="LOGIN:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="jPassword">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jPasswordActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
