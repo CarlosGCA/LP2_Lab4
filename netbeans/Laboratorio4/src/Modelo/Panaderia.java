@@ -10,6 +10,8 @@ public class Panaderia{
 	private ArrayList<Almacen> almacenes;
 	private ArrayList<Insumo> insumos;
 	private ArrayList<Cliente> clientes;
+        private ArrayList<PedidoInterno> pedidosInternos;
+        private ArrayList<PedidoProducto> pedidosProductos;
 	
         public Panaderia(){
             clientes = new ArrayList<Cliente>();
@@ -60,6 +62,34 @@ public class Panaderia{
 	public void setTelefono(int telefono){
 		this.telefono=telefono;
 	}	
+        
+        /**
+        * @return the pedidosInternos
+        */
+        public ArrayList<PedidoInterno> getPedidosInternos() {
+            return pedidosInternos;
+        }
+
+        /**
+         * @param pedidosInternos the pedidosInternos to set
+         */
+        public void setPedidosInternos(ArrayList<PedidoInterno> pedidosInternos) {
+            this.pedidosInternos = pedidosInternos;
+        }
+
+        /**
+         * @return the pedidosProductos
+         */
+        public ArrayList<PedidoProducto> getPedidosProductos() {
+            return pedidosProductos;
+        }
+
+        /**
+         * @param pedidosProductos the pedidosProductos to set
+         */
+        public void setPedidosProductos(ArrayList<PedidoProducto> pedidosProductos) {
+            this.pedidosProductos = pedidosProductos;
+        }
 	
 	// public void agregarCliente(Empresa c){
 		// Cliente t=(Cliente) c;
@@ -95,7 +125,7 @@ public class Panaderia{
 	public void ingresarPedidoProducto(int codigoProducto,int cantidad){
 		
 	}
-	public void ingresarPedidoInsumos(int insumo,int cantidad){
+	public void ingresarPedidoInternos(int insumo,int cantidad){
 		
 	}
 	

@@ -4,9 +4,9 @@ public class Natural extends Cliente{
 	private String nombre;
 	private String apellidos;
 
-	public Natural(int id_cliente, int telefono, String direccion, String cuenta,
+	public Natural(int id_cliente, int telefono, String direccion, String correo,String cuenta,
 					String DNI, String nombre, String apellidos){
-		super(id_cliente, telefono, direccion, cuenta);
+		super(id_cliente, telefono, correo, direccion, cuenta);
 		setDNI(DNI);
 		setNombre(nombre);
 		setApellidos(apellidos);

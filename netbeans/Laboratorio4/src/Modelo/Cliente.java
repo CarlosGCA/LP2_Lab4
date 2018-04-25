@@ -2,12 +2,14 @@ package Modelo;
 public abstract class Cliente{
 	private int id_cliente;
 	private int telefono;
+        private String correo;
 	private String direccion;
 	private String cuentaBancaria;
 
-	public Cliente(int id_cliente, int telefono, String direccion, String cuentaBancaria){
+	public Cliente(int id_cliente, int telefono, String correo, String direccion, String cuentaBancaria){
 		setId_cliente(id_cliente);
 		setTelefono(telefono);
+                setCorreo(correo);
 		setDireccion(direccion);
 		setCuentaBancaria(cuentaBancaria);
 	}
@@ -46,5 +48,19 @@ public abstract class Cliente{
 	public String getCuentaBancaria(){
 	    return cuentaBancaria;
 	}
+        
+         /**
+         * @return the correo
+         */
+        public String getCorreo() {
+            return correo;
+        }
+
+        /**
+         * @param correo the correo to set
+         */
+        public void setCorreo(String correo) {
+            this.correo = correo;
+        }
 	
 }

@@ -1,13 +1,13 @@
 package Modelo;
 public class Empresa extends Cliente{
 	private String ruc;
-	private String nombreEmpresa;
+	private String razonSocial;
 
-	public Empresa(int id_cliente, int telefono, String direccion, String cuenta,
+	public Empresa(int id_cliente, int telefono, String correo ,String direccion, String cuenta,
 					String ruc, String nombreEmpresa){
-		super(id_cliente, telefono, direccion, cuenta);
+		super(id_cliente, telefono, correo, direccion, cuenta);
 		setRuc(ruc);
-		setNombreEmpresa(nombreEmpresa);
+		setRazonSocial(nombreEmpresa);
 	}
 
     public Empresa(){
@@ -27,14 +27,14 @@ public class Empresa extends Cliente{
     /**
      * @return the nombreEmpresa
      */
-    public String getNombreEmpresa() {
-        return nombreEmpresa;
+    public String getRazonSocial() {
+        return razonSocial;
     }
 
     /**
      * @param nombreEmpresa the nombreEmpresa to set
      */
-    public void setNombreEmpresa(String nombreEmpresa) {
-        this.nombreEmpresa = nombreEmpresa;
+    public void setRazonSocial(String nombreEmpresa) {
+        this.razonSocial = nombreEmpresa;
     }
 }
