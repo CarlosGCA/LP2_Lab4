@@ -20,13 +20,13 @@ public class JFPrincipal2 extends javax.swing.JFrame {
      */
     public JFPrincipal2() {
         initComponents();
-        ImageIcon imI = new javax.swing.ImageIcon("C:\\Users\\kathe\\Pictures\\iconoClientes.png");
+        ImageIcon imI = new javax.swing.ImageIcon(".\\iconoClientes.png");
         Image img = imI.getImage();
         Image newi = img.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
         ImageIcon im2 = new ImageIcon(newi);
         btnCliente.setIcon(im2);
         
-        ImageIcon imF = new javax.swing.ImageIcon("C:\\Users\\kathe\\Pictures\\carrito.jpg");
+        ImageIcon imF = new javax.swing.ImageIcon(".\\carrito.jpg");
         //ImageIcon imF = new javax.swing.ImageIcon("...\\carrito.jpg");
         Image image = imF.getImage();
         Image newIm = image.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);

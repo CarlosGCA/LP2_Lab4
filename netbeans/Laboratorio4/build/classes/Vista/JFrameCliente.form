@@ -67,7 +67,7 @@
                           </Group>
                           <Component id="lblImagEmpresa" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="26" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
