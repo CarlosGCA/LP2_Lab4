@@ -24,9 +24,9 @@ public class JFPrincipal1 extends javax.swing.JFrame {
 //        Image newi = img.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
 //        ImageIcon im2 = new ImageIcon(newi);
 //        JPanelFoto.setIcon(im2);
-        JPanelFoto = new JPanelFoto();
-        JPanelFoto.add(new ImageIcon("C:\\Users\\kathe\\Pictures\\usuario.png"));
-        JPanelFoto.setVisible(false);
+//        JPanelFoto = new JPanelFoto();
+//        JPanelFoto.add(new ImageIcon("C:\\Users\\kathe\\Pictures\\usuario.png"));
+//        JPanelFoto.setVisible(false);
     }
 
     /**
@@ -54,6 +54,11 @@ public class JFPrincipal1 extends javax.swing.JFrame {
         lblContrasena.setText("Contraseña:");
 
         btnIngresar.setText("Ingresar");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
 
@@ -113,6 +118,14 @@ public class JFPrincipal1 extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        // TODO add your handling code here:
+        JFPrincipal2 obje= new JFPrincipal2();
+        obje.setVisible(true);
+        //this.setVisible(false);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
      * @param args the command line arguments

@@ -226,10 +226,10 @@ public class JFramePedidos extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 570, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnModificar)
-                                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(btnRegresar1, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(9, 9, 9)))
                 .addGap(58, 58, 58))
@@ -318,19 +318,19 @@ public class JFramePedidos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegresar1ActionPerformed
 
-    private void txtFechaPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaPedActionPerformed
+    private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaPedActionPerformed
+    }//GEN-LAST:event_txtDniActionPerformed
 
     private void btnBuscarDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDNIActionPerformed
         // TODO add your handling code here:
         txtFechaPed.setText("kat");
-        
+
     }//GEN-LAST:event_btnBuscarDNIActionPerformed
 
-    private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
+    private void txtFechaPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaPedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDniActionPerformed
+    }//GEN-LAST:event_txtFechaPedActionPerformed
 
     /**
      * @param args the command line arguments
