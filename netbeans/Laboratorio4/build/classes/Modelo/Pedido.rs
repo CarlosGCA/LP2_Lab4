@@ -1,2 +1,0 @@
-Modelo.estadoPedido
-Modelo.Pedido
