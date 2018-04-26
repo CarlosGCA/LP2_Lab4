@@ -5,11 +5,15 @@
  */
 package Vista;
 
+import Modelo.*;
+import java.util.ArrayList;
 import java.awt.Image;
 import java.awt.TextField;
 import javax.swing.ImageIcon;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -20,9 +24,20 @@ public class JFPrincipal1 extends javax.swing.JFrame {
     /**
      * Creates new form JFPrincipal1
      */
+    ArrayList<CuentaUsuario> usuarios;
+    
     public JFPrincipal1() throws Exception{
         initComponents();
-//    
+        usuarios = new ArrayList<CuentaUsuario>();
+        Permiso per1 = new Permiso();
+        CuentaUsuario user1 = new CuentaUsuario(1, "Kathy", "kathy es la mejor", per1);
+        CuentaUsuario user2 = new CuentaUsuario(1, "Carlos", "7777", per1);
+        CuentaUsuario user3 = new CuentaUsuario(1, "Sebastian", "123abc", per1);
+        CuentaUsuario user4 = new CuentaUsuario(1, "usuario", "123", per1);
+        usuarios.add(user1);
+        usuarios.add(user2);
+        usuarios.add(user3);
+        usuarios.add(user4);
     }
 
     /**
@@ -40,12 +55,18 @@ public class JFPrincipal1 extends javax.swing.JFrame {
         btnIngresar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         lblUsuario.setText("Usuario:");
+
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
 
         lblContrasena.setText("Contraseña:");
 
@@ -65,8 +86,6 @@ public class JFPrincipal1 extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/usuario.png"))); // NOI18N
 
-        jLabel2.setText("LOGIN:");
-
         jPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordActionPerformed(evt);
@@ -78,37 +97,31 @@ public class JFPrincipal1 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(71, 71, 71)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblContrasena)
                             .addComponent(lblUsuario))
                         .addGap(31, 31, 31)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPassword)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
                             .addComponent(txtUsuario)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
                         .addComponent(btnIngresar)
-                        .addGap(111, 111, 111)
+                        .addGap(77, 77, 77)
                         .addComponent(btnCancelar)))
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(92, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(81, 81, 81))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(19, 19, 19)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsuario)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -116,7 +129,7 @@ public class JFPrincipal1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblContrasena)
                     .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
+                .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnIngresar)
                     .addComponent(btnCancelar))
@@ -124,14 +137,31 @@ public class JFPrincipal1 extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         // TODO add your handling code here:
-        JFPrincipal2 obje= new JFPrincipal2();
-        obje.setVisible(true);
+
         //this.setVisible(false);
-        this.setVisible(false);
+        //this.setVisible(false);
+        String user = txtUsuario.getText();
+        String password = jPassword.getText();
+        
+        int existe=0;
+        for(CuentaUsuario u: usuarios){
+            if(user.equals(u.getnombreUsuario())){
+                existe=1;
+                if(password.equals(u.getcontrasenha())){
+                    JFPrincipal2 obje= new JFPrincipal2();
+                    obje.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "MENSAJE", JOptionPane.INFORMATION_MESSAGE);             
+                }
+            }
+        }
+        if(existe==0)JOptionPane.showMessageDialog(null, "Usuario no registrado", "MENSAJE", JOptionPane.INFORMATION_MESSAGE);   
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -143,6 +173,10 @@ public class JFPrincipal1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         JPasswordField password = new JPasswordField();
     }//GEN-LAST:event_jPasswordActionPerformed
+
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,7 +222,6 @@ public class JFPrincipal1 extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnIngresar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField jPassword;
     private javax.swing.JLabel lblContrasena;
     private javax.swing.JLabel lblUsuario;

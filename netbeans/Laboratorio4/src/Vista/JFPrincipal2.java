@@ -6,6 +6,7 @@
 package Vista;
 
 import java.awt.Image;
+import java.util.concurrent.Semaphore;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
@@ -14,24 +15,59 @@ import javax.swing.ImageIcon;
  * @author Kathy Ruiz :)
  */
 public class JFPrincipal2 extends javax.swing.JFrame {
-
     /**
      * Creates new form JFrameCliente
      */
+    public static int value;
+    public class estadoFormulario extends Thread{
+        public void run(){
+            while(true){
+                try{
+                    if(value == 1){ 
+                        btnCliente.setEnabled(false);
+                        btnPedidos.setEnabled(false);
+                        jButton1.setEnabled(false);
+                    }
+                    if(value == 0){
+                        btnCliente.setEnabled(true);
+                        btnPedidos.setEnabled(true);
+                        jButton1.setEnabled(true);
+                    }
+                    Thread.sleep(30);
+                }catch(Exception e){}
+            }
+        }
+    }
+    //public static Semaphore semaforo;
+    
+    public static JFramePedidos obje;
+    public static JFrameCliente obje2;
+    
+    
     public JFPrincipal2() {
         initComponents();
-        ImageIcon imI = new javax.swing.ImageIcon(".\\iconoClientes.png");
+        
+        estadoFormulario ef = new estadoFormulario();
+        value=0;
+        ef.start();
+        
+//        estadoFormulario2 ef2 = new estadoFormulario2();
+//        value2=0;
+//        ef2.start();
+        
+        ImageIcon imI = new javax.swing.ImageIcon(getClass().getResource("/Vista/iconoClientes.png"));
         Image img = imI.getImage();
         Image newi = img.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
         ImageIcon im2 = new ImageIcon(newi);
         btnCliente.setIcon(im2);
         
-        ImageIcon imF = new javax.swing.ImageIcon(".\\carrito.jpg");
+        ImageIcon imF = new javax.swing.ImageIcon(getClass().getResource("/Vista/carrito.jpg"));
         //ImageIcon imF = new javax.swing.ImageIcon("...\\carrito.jpg");
         Image image = imF.getImage();
         Image newIm = image.getScaledInstance(150, 150, java.awt.Image.SCALE_SMOOTH);
         ImageIcon img2 = new ImageIcon(newIm);
         btnPedidos.setIcon(img2);
+        
     }
 
     /**
@@ -48,6 +84,7 @@ public class JFPrincipal2 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         btnCliente.setText("CLIENTES");
         btnCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -75,12 +112,12 @@ public class JFPrincipal2 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(185, 185, 185)
+                .addGap(188, 188, 188)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPedidos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(214, Short.MAX_VALUE))
+                .addContainerGap(211, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,18 +132,21 @@ public class JFPrincipal2 extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
         // TODO add your handling code here:
-        JFrameCliente obje= new JFrameCliente();
-        obje.setVisible(true);
+        obje2= new JFrameCliente();
+        obje2.setVisible(true);
+        value = 1;
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
-        // TODO add your handling code here:
-        JFramePedidos obje= new JFramePedidos();
+        // TODO add your handling code here:   
+        obje= new JFramePedidos();
         obje.setVisible(true);
+        value = 1;
     }//GEN-LAST:event_btnPedidosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -6,7 +6,7 @@
 package Controlador;
 
 import java.util.ArrayList;
-import Modelo.Pedido;
+//import Modelo.Pedido;
 import AccesoData.PedidoAD;
 /**
  *

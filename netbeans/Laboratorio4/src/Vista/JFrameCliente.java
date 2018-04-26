@@ -5,13 +5,14 @@
  */
 package Vista;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane; 
 /**
  *
  * @author Kathy Ruiz :)
  */
 public class JFrameCliente extends javax.swing.JFrame {
-
     /**
      * Creates new form JFrameCliente
      */
@@ -19,7 +20,17 @@ public class JFrameCliente extends javax.swing.JFrame {
         initComponents();
         lblNombre2.setVisible(false);
         txtNombre2.setVisible(false);
+        lblImagEmpresa.setSize(200, 300);
+        lblImagPersona.setSize(200, 300);
         lblImagPersona.setVisible(false);
+        
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                JFPrincipal2.value=0;
+            }
+        });
     }
 
     /**
@@ -53,7 +64,7 @@ public class JFrameCliente extends javax.swing.JFrame {
         lblImagEmpresa = new javax.swing.JLabel();
         lblImagPersona = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Tipo de Cliente:");
 
@@ -177,11 +188,12 @@ public class JFrameCliente extends javax.swing.JFrame {
                 .addGap(50, 50, 50))
         );
 
+        lblImagEmpresa.setBackground(new java.awt.Color(200, 240, 200));
         lblImagEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/edificio.jpg"))); // NOI18N
         lblImagEmpresa.setText("jLabel4");
-        lblImagEmpresa.setMaximumSize(new java.awt.Dimension(150, 150));
+        lblImagEmpresa.setMaximumSize(new java.awt.Dimension(120, 120));
         lblImagEmpresa.setMinimumSize(new java.awt.Dimension(50, 50));
-        lblImagEmpresa.setPreferredSize(new java.awt.Dimension(100, 100));
+        lblImagEmpresa.setPreferredSize(new java.awt.Dimension(50, 50));
 
         lblImagPersona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/personita.png"))); // NOI18N
 
@@ -202,8 +214,8 @@ public class JFrameCliente extends javax.swing.JFrame {
                         .addGap(84, 84, 84)
                         .addComponent(lblImagPersona)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblImagEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 401, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblImagEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,12 +230,10 @@ public class JFrameCliente extends javax.swing.JFrame {
                         .addComponent(lblImagPersona)
                         .addGap(200, 200, 200))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblImagEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblImagEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(26, Short.MAX_VALUE))))
         );
 
@@ -237,6 +247,7 @@ public class JFrameCliente extends javax.swing.JFrame {
             lblNombre1.setText("Razon Social");
             //lblNombre2.setVisible(false);
             //txtNombre2.setVisible(false);
+            lblImagEmpresa.setSize(200, 300);
             lblImagEmpresa.setVisible(true);
             lblImagPersona.setVisible(false);
             lblNombre2.setText("Direccion:");
@@ -251,6 +262,7 @@ public class JFrameCliente extends javax.swing.JFrame {
             lblNombre2.setVisible(true);
             txtNombre2.setVisible(true);
             lblImagEmpresa.setVisible(false);
+            lblImagPersona.setSize(200, 300);
             lblImagPersona.setVisible(true);
         }
     }//GEN-LAST:event_cboTipoActionPerformed
@@ -261,6 +273,7 @@ public class JFrameCliente extends javax.swing.JFrame {
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         // TODO add your handling code here:
+        JFPrincipal2.value=0;
         super.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
 
