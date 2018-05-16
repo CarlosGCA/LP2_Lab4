@@ -28,7 +28,7 @@ public class JFrameCliente extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                JFPrincipal2.value=0;
+                JFPrincipalVendedor.value=0;
             }
         });
     }
@@ -273,7 +273,7 @@ public class JFrameCliente extends javax.swing.JFrame {
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         // TODO add your handling code here:
-        JFPrincipal2.value=0;
+        JFPrincipalVendedor.value=0;
         super.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
 

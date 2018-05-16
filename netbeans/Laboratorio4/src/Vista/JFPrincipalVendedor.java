@@ -14,7 +14,7 @@ import javax.swing.ImageIcon;
  *
  * @author Kathy Ruiz :)
  */
-public class JFPrincipal2 extends javax.swing.JFrame {
+public class JFPrincipalVendedor extends javax.swing.JFrame {
     /**
      * Creates new form JFrameCliente
      */
@@ -44,7 +44,7 @@ public class JFPrincipal2 extends javax.swing.JFrame {
     public static JFrameCliente obje2;
     
     
-    public JFPrincipal2() {
+    public JFPrincipalVendedor() {
         initComponents();
         
         estadoFormulario ef = new estadoFormulario();
@@ -171,14 +171,18 @@ public class JFPrincipal2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JFPrincipal2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFPrincipalVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JFPrincipal2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFPrincipalVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JFPrincipal2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFPrincipalVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JFPrincipal2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JFPrincipalVendedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -188,11 +192,11 @@ public class JFPrincipal2 extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                  try{
-                    new JFPrincipal2().setVisible(true);
+                    new JFPrincipalVendedor().setVisible(true);
                 }catch(Exception e){
                     System.out.println(e.getMessage());
                 }
-                //new JFPrincipal2().setVisible(true);
+                //new JFPrincipalVendedor().setVisible(true);
             }
         });
     }

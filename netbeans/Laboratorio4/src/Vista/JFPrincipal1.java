@@ -153,7 +153,7 @@ public class JFPrincipal1 extends javax.swing.JFrame {
             if(user.equals(u.getnombreUsuario())){
                 existe=1;
                 if(password.equals(u.getcontrasenha())){
-                    JFPrincipal2 obje= new JFPrincipal2();
+                    JFPrincipalVendedor obje= new JFPrincipalVendedor();
                     obje.setVisible(true);
                     this.setVisible(false);
                 }else{

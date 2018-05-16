@@ -63,7 +63,7 @@ public class JFramePedidos extends javax.swing.JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                JFPrincipal2.value=0;
+                JFPrincipalVendedor.value=0;
             }
         });
     }
@@ -404,13 +404,13 @@ public class JFramePedidos extends javax.swing.JFrame {
 
     private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
         // TODO add your handling code here:
-        JFPrincipal2.value=0;
+        JFPrincipalVendedor.value=0;
         super.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresar1ActionPerformed
         // TODO add your handling code here:
-        JFPrincipal2.value=0;
+        JFPrincipalVendedor.value=0;
         super.dispose();
     }//GEN-LAST:event_btnRegresar1ActionPerformed
 
