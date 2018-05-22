@@ -27,7 +27,7 @@ public class JFrameUsuarios extends javax.swing.JFrame {
     public JFrameUsuarios() {
         initComponents();
         logicaNeg = new UsuarioBL();
-        emp = new Empleado();
+
     }
 
     /**
@@ -89,7 +89,7 @@ public class JFrameUsuarios extends javax.swing.JFrame {
 
         jLabel9.setText("Sexo:");
 
-        jLabel10.setText("Rol:");
+        jLabel10.setText("Puesto:");
 
         jLabel11.setText("Turno:");
 
@@ -101,7 +101,12 @@ public class JFrameUsuarios extends javax.swing.JFrame {
 
         jcbTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mañana", "Tarde", "Noche" }));
 
-        jcbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Panadero", "Supervisor" }));
+        jcbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "JEFE PANADERO", "PANADERO", "SUPERVISOR" }));
+        jcbRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbRolActionPerformed(evt);
+            }
+        });
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/IconRegistrarUs.jpg"))); // NOI18N
 
@@ -134,8 +139,6 @@ public class JFrameUsuarios extends javax.swing.JFrame {
         btnEliminar.setText("Eliminar");
 
         jLabel13.setText("(DD/MM/YYYY)");
-
-        txtContrasena.setText("jPasswordField1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -276,36 +279,56 @@ public class JFrameUsuarios extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+        emp = new Empleado();
         emp.setNombre(txtNombres.getText());
         emp.setApellido(txtApellido.getText());
         emp.setFechaNac(txtFechaNac.getText());
-        if (cbFem.getText() == "F") {
+        if (cbFem.getText().equals('F')) {
             emp.setSexo('F');
         } else {
             emp.setSexo('M');
         }
-        String turn = jcbTurno.getToolTipText();
-        Turno tur = Turno.valueOf(turn);
+        String turn = (String) jcbTurno.getSelectedItem();
+        Turno tur;
+        if (turn == "Mañana") {
+            emp.setTurno(Turno.Mañana);
+        } else if (turn == "Tarde") {
+            emp.setTurno(Turno.Tarde);
+        } else {
+            emp.setTurno(Turno.Noche);
+        }
 
-        emp.setTurno(tur);
+        //emp.setTurno(tur);
         String auxdni = txtDNI.getText();
         int ddni = Integer.parseInt(auxdni);
-        emp.setID(ddni);
-        
+        emp.setDNI(ddni);
+
         String nomUs = txtUsuario.getText();
         String cont = txtContrasena.getText();
-        
-        CuentaUsuario cuenU=new CuentaUsuario();
+
+        CuentaUsuario cuenU = new CuentaUsuario();
         cuenU.setnombreUsuario(nomUs);
         cuenU.setcontrasenha(cont);
-        String auxRol = jcbRol.getToolTipText();
+        String auxRol = (String) jcbRol.getSelectedItem();
         Permiso perm = new Permiso();
         perm.setNombre(auxRol);
         cuenU.setpermise(perm);
         emp.setUsuario(cuenU);
+        System.out.println("nom: " + emp.getNombre());
+        System.out.println("ap: " + emp.getApellido());
+        System.out.println("dni: " + emp.getDNI());
+        System.out.println("turno: " + emp.getTurno().toString());
+        System.out.println("fNac: " + emp.getFechaNac());
+        //System.out.println("nomPer: " + emp.getUsuario().getpermise().toString());//ESTO NO
+        System.out.println("nomPer: " + emp.getUsuario().getpermise().getNombre());
+        System.out.println("contra: " + emp.getUsuario().getcontrasenha());
         logicaNeg.registrarProfesor(emp);
         //JOptionPane.showMessageDialog(null, "Se ha agregado con éxito", "Ventana Clientes", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void jcbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbRolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbRolActionPerformed
 
     /**
      * @param args the command line arguments
