@@ -27,7 +27,11 @@ public class JFrameUsuarios extends javax.swing.JFrame {
     public JFrameUsuarios() {
         initComponents();
         logicaNeg = new UsuarioBL();
+<<<<<<< HEAD
 
+=======
+        emp = new Empleado();
+>>>>>>> 80d025d6f459d8666d167cbade68fdb938238608
     }
 
     /**
@@ -94,6 +98,7 @@ public class JFrameUsuarios extends javax.swing.JFrame {
         jLabel11.setText("Turno:");
 
         txtID.setEnabled(false);
+<<<<<<< HEAD
 
         cbFem.setText("F");
 
@@ -127,6 +132,36 @@ public class JFrameUsuarios extends javax.swing.JFrame {
                 .addContainerGap(93, Short.MAX_VALUE))
         );
 
+=======
+
+        cbFem.setText("F");
+
+        cbMas.setText("M");
+
+        jcbTurno.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mañana", "Tarde", "Noche" }));
+
+        jcbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Admin", "Panadero", "Supervisor" }));
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/IconRegistrarUs.jpg"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(98, 98, 98)
+                .addComponent(jLabel12)
+                .addContainerGap(109, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jLabel12)
+                .addContainerGap(93, Short.MAX_VALUE))
+        );
+
+>>>>>>> 80d025d6f459d8666d167cbade68fdb938238608
         btnRegistrar.setText("Registrar");
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,6 +174,11 @@ public class JFrameUsuarios extends javax.swing.JFrame {
         btnEliminar.setText("Eliminar");
 
         jLabel13.setText("(DD/MM/YYYY)");
+<<<<<<< HEAD
+=======
+
+        txtContrasena.setText("jPasswordField1");
+>>>>>>> 80d025d6f459d8666d167cbade68fdb938238608
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -220,10 +260,17 @@ public class JFrameUsuarios extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
+=======
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+>>>>>>> 80d025d6f459d8666d167cbade68fdb938238608
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -279,15 +326,23 @@ public class JFrameUsuarios extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
         emp = new Empleado();
         emp.setNombre(txtNombres.getText());
         emp.setApellido(txtApellido.getText());
         emp.setFechaNac(txtFechaNac.getText());
         if (cbFem.getText().equals('F')) {
+=======
+        emp.setNombre(txtNombres.getText());
+        emp.setApellido(txtApellido.getText());
+        emp.setFechaNac(txtFechaNac.getText());
+        if (cbFem.getText() == "F") {
+>>>>>>> 80d025d6f459d8666d167cbade68fdb938238608
             emp.setSexo('F');
         } else {
             emp.setSexo('M');
         }
+<<<<<<< HEAD
         String turn = (String) jcbTurno.getSelectedItem();
         Turno tur;
         if (turn == "Mañana") {
@@ -310,10 +365,28 @@ public class JFrameUsuarios extends javax.swing.JFrame {
         cuenU.setnombreUsuario(nomUs);
         cuenU.setcontrasenha(cont);
         String auxRol = (String) jcbRol.getSelectedItem();
+=======
+        String turn = jcbTurno.getToolTipText();
+        Turno tur = Turno.valueOf(turn);
+
+        emp.setTurno(tur);
+        String auxdni = txtDNI.getText();
+        int ddni = Integer.parseInt(auxdni);
+        emp.setID(ddni);
+        
+        String nomUs = txtUsuario.getText();
+        String cont = txtContrasena.getText();
+        
+        CuentaUsuario cuenU=new CuentaUsuario();
+        cuenU.setnombreUsuario(nomUs);
+        cuenU.setcontrasenha(cont);
+        String auxRol = jcbRol.getToolTipText();
+>>>>>>> 80d025d6f459d8666d167cbade68fdb938238608
         Permiso perm = new Permiso();
         perm.setNombre(auxRol);
         cuenU.setpermise(perm);
         emp.setUsuario(cuenU);
+<<<<<<< HEAD
         System.out.println("nom: " + emp.getNombre());
         System.out.println("ap: " + emp.getApellido());
         System.out.println("dni: " + emp.getDNI());
@@ -322,14 +395,19 @@ public class JFrameUsuarios extends javax.swing.JFrame {
         //System.out.println("nomPer: " + emp.getUsuario().getpermise().toString());//ESTO NO
         System.out.println("nomPer: " + emp.getUsuario().getpermise().getNombre());
         System.out.println("contra: " + emp.getUsuario().getcontrasenha());
+=======
+>>>>>>> 80d025d6f459d8666d167cbade68fdb938238608
         logicaNeg.registrarProfesor(emp);
         //JOptionPane.showMessageDialog(null, "Se ha agregado con éxito", "Ventana Clientes", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
+<<<<<<< HEAD
     private void jcbRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbRolActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbRolActionPerformed
 
+=======
+>>>>>>> 80d025d6f459d8666d167cbade68fdb938238608
     /**
      * @param args the command line arguments
      */

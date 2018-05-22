@@ -91,11 +91,14 @@ public class Empleado {
     public Turno getTurno() {
         return turno;
     }
+<<<<<<< HEAD
     
 //    @Override
 //    public String toString() {
 //        return turno.toString();
 //    }
 //    
+=======
+>>>>>>> 80d025d6f459d8666d167cbade68fdb938238608
 
 }
