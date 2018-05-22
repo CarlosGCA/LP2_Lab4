@@ -11,6 +11,8 @@ import java.util.Date;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
+
+import Modelo.Producto;
 /**
  *
  * @author Kathy Ruiz :)
@@ -35,14 +37,22 @@ public class JFramePedidos extends javax.swing.JFrame {
                         btnRegresar.setEnabled(true);
                         btnRegresar1.setEnabled(true);
                     }
+                    if(value == 2){
+                        Producto productoSeleccionado = new Producto();
+                        productoSeleccionado = objeBuscarPro.getProductoElegido();
+                        txtProducto.setText(productoSeleccionado.getnombProducto());
+                        txtProducto.setEnabled(false);
+                        System.out.println(productoSeleccionado.getnombProducto());
+                        value = 0;
+                    }
                     Thread.sleep(30);
                 }catch(Exception e){}
             }
         }
     }
 
-    public static JBuscarProducto obje;
-    public static JFBuscarCliente obje2;
+    public static JBuscarProducto objeBuscarPro;
+    public static JFBuscarCliente objeBuscarCli;
     
     //JFPrincipal2 padre;
     public JFramePedidos(){
@@ -105,7 +115,7 @@ public class JFramePedidos extends javax.swing.JFrame {
         btnBuscarDNI = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         lblProducto = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtProducto = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         btnBuscarProducto = new javax.swing.JButton();
@@ -268,6 +278,12 @@ public class JFramePedidos extends javax.swing.JFrame {
 
         lblProducto.setText("Producto:");
 
+        txtProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtProductoActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("Cantidad:");
 
         btnBuscarProducto.setText("Buscar Producto");
@@ -320,7 +336,7 @@ public class JFramePedidos extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(40, 40, 40)
                                 .addComponent(btnBuscarProducto))
                             .addGroup(layout.createSequentialGroup()
@@ -373,7 +389,7 @@ public class JFramePedidos extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProducto)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarProducto))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -421,10 +437,9 @@ public class JFramePedidos extends javax.swing.JFrame {
     private void btnBuscarDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDNIActionPerformed
         // TODO add your handling code here:
         String tipo = (String) cboTipoCliente.getSelectedItem();
-        obje2= new JFBuscarCliente(tipo);
-        obje2.setVisible(true);
+        objeBuscarCli= new JFBuscarCliente(tipo);
+        objeBuscarCli.setVisible(true);
         value = 1;
-        //this.setEnabled(false);
     }//GEN-LAST:event_btnBuscarDNIActionPerformed
 
     private void txtFechaPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaPedActionPerformed
@@ -453,8 +468,9 @@ public class JFramePedidos extends javax.swing.JFrame {
 
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
         // TODO add your handling code here:
-        obje= new JBuscarProducto();
-        obje.setVisible(true);
+        objeBuscarPro= new JBuscarProducto();
+        objeBuscarPro.setAlwaysOnTop(true);
+        objeBuscarPro.setVisible(true);
         value = 1;
     }//GEN-LAST:event_btnBuscarProductoActionPerformed
 
@@ -474,6 +490,10 @@ public class JFramePedidos extends javax.swing.JFrame {
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "Se ha guardado satisfactoriamente", "MENSAJE", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnGrabarActionPerformed
+
+    private void txtProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtProductoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -536,13 +556,13 @@ public class JFramePedidos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblProducto;
     private javax.swing.JLabel lblRazonS1;
     private javax.swing.JLabel lblRuc1;
     private javax.swing.JTextField txtFechaEntrega;
     private javax.swing.JTextField txtFechaPed;
+    private javax.swing.JTextField txtProducto;
     private javax.swing.JTextField txtRazonS1;
     private javax.swing.JTextField txtRuc1;
     // End of variables declaration//GEN-END:variables
