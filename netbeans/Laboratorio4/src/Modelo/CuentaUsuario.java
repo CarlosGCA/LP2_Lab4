@@ -4,7 +4,9 @@ public class CuentaUsuario{
 	private String nombreUsuario;
 	private String contrasenha;
 	private Permiso permise;
-	
+	public CuentaUsuario(){
+            
+        }
 	public CuentaUsuario(int idUsuario,String nombreUsuario,String contrasenha,Permiso permise){
 		this.idUsuario=idUsuario;
 		this.nombreUsuario=nombreUsuario;
