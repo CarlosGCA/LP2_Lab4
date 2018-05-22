@@ -2,9 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
             <file>file:/C:/Users/kathe/Desktop/Lab6_Kat/netbeans/Laboratorio4/src/Modelo/Permiso.java</file>
             <file>file:/C:/Users/kathe/Desktop/Lab6_Kat/netbeans/Laboratorio4/src/Vista/JFrameUsuarios.java</file>
@@ -13,6 +10,5 @@
             <file>file:/C:/Users/kathe/Desktop/Lab6_Kat/netbeans/Laboratorio4/src/Vista/JFrameCliente.java</file>
             <file>file:/C:/Users/kathe/Desktop/Lab6_Kat/netbeans/Laboratorio4/src/Modelo/CuentaUsuario.java</file>
         </group>
->>>>>>> 80d025d6f459d8666d167cbade68fdb938238608
     </open-files>
 </project-private>

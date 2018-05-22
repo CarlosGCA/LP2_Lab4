@@ -1,2 +1,2 @@
 package Modelo;
-public enum Turno {Mañana, Tarde, Noche}
+public enum Turno {manhana, tarde, noche}

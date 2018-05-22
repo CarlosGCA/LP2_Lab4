@@ -241,7 +241,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Puesto:"/>
+        <Property name="text" type="java.lang.String" value="Rol:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
@@ -290,21 +290,12 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
-<<<<<<< HEAD
-            <StringItem index="0" value="JEFE PANADERO"/>
-            <StringItem index="1" value="PANADERO"/>
-            <StringItem index="2" value="SUPERVISOR"/>
-=======
             <StringItem index="0" value="Admin"/>
             <StringItem index="1" value="Panadero"/>
             <StringItem index="2" value="Supervisor"/>
->>>>>>> 80d025d6f459d8666d167cbade68fdb938238608
           </StringArray>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbRolActionPerformed"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
@@ -367,12 +358,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="txtContrasena">
-<<<<<<< HEAD
-=======
       <Properties>
         <Property name="text" type="java.lang.String" value="jPasswordField1"/>
       </Properties>
->>>>>>> 80d025d6f459d8666d167cbade68fdb938238608
     </Component>
   </SubComponents>
 </Form>
