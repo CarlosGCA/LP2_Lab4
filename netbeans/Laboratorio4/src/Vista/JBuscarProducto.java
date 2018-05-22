@@ -18,11 +18,27 @@ import javax.swing.table.DefaultTableModel;
  */
 public class JBuscarProducto extends javax.swing.JFrame {
     private ProductoBL logicaNegocio;
+    private ArrayList<Producto> listaProductos;
+    private Producto productoElegido;
+    /**
+     * @return the productoElegido
+     */
+    public Producto getProductoElegido() {
+        return productoElegido;
+    }
+
+    /**
+     * @param productoElegido the productoElegido to set
+     */
+    public void setProductoElegido(Producto productoElegido) {
+        this.productoElegido = productoElegido;
+    }
+    
     /**
      * Creates new form JBuscarProducto
      */
     public JBuscarProducto() {
-        //super(parent,modal);
+        
         initComponents();  
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new WindowAdapter(){
@@ -31,15 +47,14 @@ public class JBuscarProducto extends javax.swing.JFrame {
                 JFramePedidos.value=0;
             }
         });
-        
         logicaNegocio = new ProductoBL();
-        ArrayList<Producto> lista = logicaNegocio.listarProducto();
+        listaProductos = new ArrayList<Producto>(logicaNegocio.listarProducto());
         DefaultTableModel modelo = (DefaultTableModel) tableProducto.getModel();
         Object[] fila = new Object[3];
-        for(int i=0; i<lista.size(); i++){
-            fila[0] = lista.get(i).getidProducto();
-            fila[1] = lista.get(i).getnombProducto();
-            fila[2] = lista.get(i).getprecio();
+        for(int i=0; i<listaProductos.size(); i++){
+            fila[0] = listaProductos.get(i).getidProducto();
+            fila[1] = listaProductos.get(i).getnombProducto();
+            fila[2] = listaProductos.get(i).getprecio();
             modelo.addRow(fila);
         }
     }
@@ -57,7 +72,7 @@ public class JBuscarProducto extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableProducto = new javax.swing.JTable();
         btnSalir = new javax.swing.JButton();
-        btnSalir1 = new javax.swing.JButton();
+        btnSeleccionar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -81,10 +96,10 @@ public class JBuscarProducto extends javax.swing.JFrame {
             }
         });
 
-        btnSalir1.setText("Seleccionar");
-        btnSalir1.addActionListener(new java.awt.event.ActionListener() {
+        btnSeleccionar.setText("Seleccionar");
+        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalir1ActionPerformed(evt);
+                btnSeleccionarActionPerformed(evt);
             }
         });
 
@@ -99,7 +114,7 @@ public class JBuscarProducto extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSalir1)
+                        .addComponent(btnSeleccionar)
                         .addGap(18, 18, 18)
                         .addComponent(btnSalir)))
                 .addContainerGap(39, Short.MAX_VALUE))
@@ -111,7 +126,7 @@ public class JBuscarProducto extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(btnSalir)
-                    .addComponent(btnSalir1))
+                    .addComponent(btnSeleccionar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(44, Short.MAX_VALUE))
@@ -127,9 +142,17 @@ public class JBuscarProducto extends javax.swing.JFrame {
         super.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void btnSalir1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalir1ActionPerformed
+    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalir1ActionPerformed
+        try{
+            setProductoElegido(new Producto());
+            setProductoElegido(listaProductos.get(tableProducto.getSelectedRow()));
+            JFramePedidos.value=2;
+            super.dispose();
+        }catch(Exception e){
+            System.out.println(e.toString());
+        }
+    }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,7 +191,7 @@ public class JBuscarProducto extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton btnSalir1;
+    private javax.swing.JButton btnSeleccionar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableProducto;
