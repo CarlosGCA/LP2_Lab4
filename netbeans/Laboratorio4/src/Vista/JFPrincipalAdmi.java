@@ -95,6 +95,11 @@ public class JFPrincipalAdmi extends javax.swing.JFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnGestInsumos.setText("Gestión de Insumos");
+        btnGestInsumos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestInsumosActionPerformed(evt);
+            }
+        });
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagIns.png"))); // NOI18N
 
@@ -129,6 +134,11 @@ public class JFPrincipalAdmi extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jButton1.setText("Gestión de Productos");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vista/imagProd.jpg"))); // NOI18N
 
@@ -284,6 +294,18 @@ public class JFPrincipalAdmi extends javax.swing.JFrame {
         us.setVisible(true);
                 
     }//GEN-LAST:event_btnGestUsuarioActionPerformed
+
+    private void btnGestInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestInsumosActionPerformed
+        // TODO add your handling code here:
+        JFrameInsumos insumos = new JFrameInsumos();
+        insumos.setVisible(true);
+    }//GEN-LAST:event_btnGestInsumosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JFrameProductos productos = new JFrameProductos();
+        productos.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
