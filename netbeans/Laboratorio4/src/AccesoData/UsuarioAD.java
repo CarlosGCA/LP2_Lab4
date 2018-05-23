@@ -56,4 +56,8 @@ public class UsuarioAD {
             System.out.println(e.toString());
         }
     }
+    
+    public void buscarUsuarioLogin(String nombre){
+        
+    }
 }

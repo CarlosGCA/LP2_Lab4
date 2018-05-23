@@ -29,15 +29,6 @@ public class JFPrincipal1 extends javax.swing.JFrame {
     public JFPrincipal1() throws Exception{
         initComponents();
         usuarios = new ArrayList<CuentaUsuario>();
-        Permiso per1 = new Permiso();
-        CuentaUsuario user1 = new CuentaUsuario(1, "Kathy", "kathy es la mejor", per1);
-        CuentaUsuario user2 = new CuentaUsuario(1, "Carlos", "7777", per1);
-        CuentaUsuario user3 = new CuentaUsuario(1, "Sebastian", "123abc", per1);
-        CuentaUsuario user4 = new CuentaUsuario(1, "usuario", "123", per1);
-        usuarios.add(user1);
-        usuarios.add(user2);
-        usuarios.add(user3);
-        usuarios.add(user4);
     }
 
     /**
