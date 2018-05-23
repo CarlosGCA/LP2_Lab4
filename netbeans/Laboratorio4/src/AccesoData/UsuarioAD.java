@@ -14,6 +14,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -58,6 +59,21 @@ public class UsuarioAD {
     }
     
     public void buscarUsuarioLogin(String nombre){
-        
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g7", "inf282g7", "0mvK88");
+
+            CallableStatement cs
+                    = con.prepareCall("{call "
+                            + "BUSCAR_USUARIO_LOGUEO(?)}"
+                    );
+            cs.setString(1, nombre);
+            ResultSet rs = cs.executeQuery();
+            
+            
+        }catch (Exception e) {
+            System.out.println(e.toString());
+            
+        }
     }
 }
