@@ -183,6 +183,7 @@ public class JFramePedidos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        JTablePedidos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(JTablePedidos);
 
         jLabel8.setText("Fecha de Pedido:");
