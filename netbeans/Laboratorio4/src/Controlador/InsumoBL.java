@@ -29,6 +29,6 @@ public class InsumoBL {
     }
     
     public int registrarInsumo(int id,String nombre,int medida){
-        return accesoDatos.registarUsuario(id, nombre, medida);
+        return accesoDatos.registarInsumo(id, nombre, medida);
     }
 }

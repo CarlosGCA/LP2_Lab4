@@ -78,7 +78,7 @@ public class InsumoAD {
         return lista;
     }
     
-    public int registarUsuario(int _id,String _nombre,int _medida){
+    public int registarInsumo(int _id,String _nombre,int _medida){
         int id=0;
         try{
             Class.forName("com.mysql.jdbc.Driver");
@@ -95,6 +95,11 @@ public class InsumoAD {
             System.out.println(e.getMessage());
         }
         return id;
+    }
+    
+    public int eliminarInsumo(int _id){
+    int id=0;
+    return id;
     }
     
 }
