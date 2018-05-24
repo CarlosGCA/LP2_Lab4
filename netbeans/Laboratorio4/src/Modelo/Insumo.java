@@ -4,6 +4,8 @@ public class Insumo{
 	private int idInsumo;
 	private String descripcion;
 	private unidadMed unidMed;
+        
+        public Insumo(){};
 	
 	public Insumo(int idInsumo,String descripcion,unidadMed unidMed){
 		this.idInsumo=idInsumo;
