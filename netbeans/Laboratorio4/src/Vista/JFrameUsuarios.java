@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  *
  * @author alulab14
  */
-public class JFrameUsuarios extends javax.swing.JFrame {
+public class JFrameUsuarios extends javax.swing.JDialog{
 
     /**
      * Creates new form JFrameUsuarios
@@ -30,6 +30,7 @@ public class JFrameUsuarios extends javax.swing.JFrame {
     
     
     private void inicializarDatos(){
+        
         fechaNacimientoChooser.setDateFormatString("yyyy-MM-dd");
         // Con esto se pone como dia maximo , el dia de hoy
         fechaNacimientoChooser.setMaxSelectableDate(new Date());

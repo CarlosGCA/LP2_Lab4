@@ -5,14 +5,23 @@
  */
 package Vista;
 
+import Controlador.ClientesBL;
+import Modelo.Empresa;
+import Modelo.Natural;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import javax.swing.JOptionPane; 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kathy Ruiz :)
  */
 public class JFrameCliente extends javax.swing.JFrame {
+
+    private Natural cliNat;
+    private Empresa cliEmp;
+    private ClientesBL logicaNeg;
+
     /**
      * Creates new form JFrameCliente
      */
@@ -23,12 +32,15 @@ public class JFrameCliente extends javax.swing.JFrame {
         lblImagEmpresa.setSize(200, 300);
         lblImagPersona.setSize(200, 300);
         lblImagPersona.setVisible(false);
-        
+        cliNat=new Natural();
+        cliEmp=new Empresa();
+        logicaNeg= new ClientesBL();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                JFPrincipalVendedor.value=0;
+                JFPrincipalVendedor.value = 0;
             }
         });
     }
@@ -53,7 +65,6 @@ public class JFrameCliente extends javax.swing.JFrame {
         txtNombre2 = new javax.swing.JTextField();
         btnAgregarCliente = new javax.swing.JButton();
         lblDireccion = new javax.swing.JLabel();
-        txtDireccion = new javax.swing.JTextField();
         lblTelefono = new javax.swing.JLabel();
         txtTelefono = new javax.swing.JTextField();
         lblCuentaBan = new javax.swing.JLabel();
@@ -61,6 +72,7 @@ public class JFrameCliente extends javax.swing.JFrame {
         lblCorreo = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         btnCerrar = new javax.swing.JButton();
+        txtDireccion = new javax.swing.JTextField();
         lblImagEmpresa = new javax.swing.JLabel();
         lblImagPersona = new javax.swing.JLabel();
 
@@ -98,12 +110,6 @@ public class JFrameCliente extends javax.swing.JFrame {
         });
 
         lblDireccion.setText("Dirección:");
-
-        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccionActionPerformed(evt);
-            }
-        });
 
         lblTelefono.setText("Teléfono:");
 
@@ -143,11 +149,11 @@ public class JFrameCliente extends javax.swing.JFrame {
                     .addComponent(txtRuc, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
                     .addComponent(txtNombre1)
                     .addComponent(txtNombre2)
-                    .addComponent(txtDireccion)
                     .addComponent(txtTelefono)
                     .addComponent(txtCuentaBan)
                     .addComponent(txtEmail)
-                    .addComponent(btnCerrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCerrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDireccion))
                 .addGap(60, 60, 60))
         );
         jPanel1Layout.setVerticalGroup(
@@ -242,7 +248,7 @@ public class JFrameCliente extends javax.swing.JFrame {
 
     private void cboTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboTipoActionPerformed
         // TODO add your handling code here:
-        if(cboTipo.getSelectedItem()=="Empresa"){
+        if (cboTipo.getSelectedItem() == "Empresa") {
             lblRUC.setText("RUC");
             lblNombre1.setText("Razon Social");
             //lblNombre2.setVisible(false);
@@ -256,7 +262,7 @@ public class JFrameCliente extends javax.swing.JFrame {
             lblCuentaBan.setText("Correo");
             lblCorreo.setVisible(false);
             txtEmail.setVisible(false);
-        }else{
+        } else {
             lblRUC.setText("DNI");
             lblNombre1.setText("Nombre");
             lblNombre2.setVisible(true);
@@ -273,18 +279,42 @@ public class JFrameCliente extends javax.swing.JFrame {
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         // TODO add your handling code here:
-        JFPrincipalVendedor.value=0;
+        JFPrincipalVendedor.value = 0;
         super.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarClienteActionPerformed
         // TODO add your handling code here:
+        if (cboTipo.getSelectedItem() == "Empresa") {
+            cliEmp.setRuc(txtRuc.getText());
+            cliEmp.setRazonSocial(txtNombre1.getText());
+            cliEmp.setDireccion(txtDireccion.getText());
+            cliEmp.setTelefono(Integer.parseInt(txtTelefono.getText()));
+            cliEmp.setCuentaBancaria(txtCuentaBan.getText());
+            cliEmp.setCorreo(txtEmail.getText());
+//            System.out.println("nom: " + cliEmp.getCuentaBancaria());
+//            System.out.println("ap: " + cliEmp.getApellido());
+//            System.out.println("dni: " + cliEmp.getDNI());
+//            System.out.println("turno: " + cliEmp.getTurno().toString());
+//            System.out.println("fNac: " + cliEmp.getFechaNac());
+            logicaNeg.registrarEmpresa(cliEmp);
+        } else {
+            cliNat.setDNI(txtRuc.getText());
+            cliNat.setNombre(txtNombre1.getText());
+            cliNat.setApellidos(txtNombre2.getText());
+            cliNat.setDireccion(txtDireccion.getText());
+            cliNat.setTelefono(Integer.parseInt(txtTelefono.getText()));
+            cliNat.setCuentaBancaria(txtCuentaBan.getText());
+            cliNat.setCorreo(txtEmail.getText());
+            logicaNeg.registrarNatural(cliNat);
+            System.out.println("nom: " + cliNat.getNombre());
+            System.out.println("ap: " + cliNat.getApellidos());
+            System.out.println("dni: " + cliNat.getDNI());
+            System.out.println("corre: " + cliNat.getCorreo());
+            System.out.println("cBan: " + cliNat.getCuentaBancaria());
+        }
         JOptionPane.showMessageDialog(null, "Se ha agregado con éxito", "Ventana Clientes", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnAgregarClienteActionPerformed
-
-    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDireccionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -316,9 +346,9 @@ public class JFrameCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try{
+                try {
                     new JFrameCliente().setVisible(true);
-                }catch(Exception e){
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
                 //new JFrameCliente().setVisible(true);
