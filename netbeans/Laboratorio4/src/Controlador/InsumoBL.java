@@ -31,4 +31,8 @@ public class InsumoBL {
     public int registrarInsumo(int id,String nombre,int medida){
         return accesoDatos.registarInsumo(id, nombre, medida);
     }
+    
+    public int eliminarInsumo(int id){
+        return accesoDatos.eliminarInsumo(id);
+    }
 }
