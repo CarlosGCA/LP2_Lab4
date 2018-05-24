@@ -139,16 +139,16 @@ public class JFPrincipalVendedor extends javax.swing.JDialog {
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
         // TODO add your handling code here:
-        obje2= new JFrameCliente();
+        obje2= new JFrameCliente(this,true);
         obje2.setVisible(true);
-        value = 1;
+        //value = 1;
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnPedidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPedidosActionPerformed
         // TODO add your handling code here:   
-        obje= new JFramePedidos();
+        obje= new JFramePedidos(this,true);
         obje.setVisible(true);
-        value = 1;
+        //value = 1;
     }//GEN-LAST:event_btnPedidosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

@@ -6,6 +6,7 @@
 package Vista;
 
 import java.awt.Frame;
+import javax.swing.JFrame;
 
 /**
  *
@@ -293,9 +294,9 @@ public class JFPrincipalAdmi extends javax.swing.JDialog {
 
     private void btnGestUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestUsuarioActionPerformed
         // TODO add your handling code here:
-        JFrameUsuarios us= new JFrameUsuarios();
+        JFrameUsuarios us= new JFrameUsuarios(this,true);
         us.setVisible(true);
-                
+        us.setAlwaysOnTop(true);
     }//GEN-LAST:event_btnGestUsuarioActionPerformed
 
     private void btnGestInsumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestInsumosActionPerformed

@@ -5,36 +5,88 @@
  */
 package Vista;
 
+import Controlador.ClientesBL;
+import Modelo.Empresa;
+import Modelo.Natural;
+import Modelo.Producto;
+import java.awt.Dialog;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 /**
  *
  * @author Kathy Ruiz :)
  */
-public class JFBuscarCliente extends javax.swing.JFrame {
+public class JFBuscarCliente extends javax.swing.JDialog {
     private String tipo;
+    private ClientesBL LogicaNegocio;
+    private ArrayList<Natural> listaNatural;
+    private ArrayList<Empresa> listaEmpresa;
+    private Natural naturalSeleccionado;
+    private Empresa empresaSeleccionada;
+    /**
+     * @return the naturalSeleccionado
+     */
+    public Natural getNaturalSeleccionado() {
+        return naturalSeleccionado;
+    }
+
+    /**
+     * @param naturalSeleccionado the naturalSeleccionado to set
+     */
+    public void setNaturalSeleccionado(Natural naturalSeleccionado) {
+        this.naturalSeleccionado = naturalSeleccionado;
+    }
+
+    /**
+     * @return the empresaSeleccionada
+     */
+    public Empresa getEmpresaSeleccionada() {
+        return empresaSeleccionada;
+    }
+
+    /**
+     * @param empresaSeleccionada the empresaSeleccionada to set
+     */
+    public void setEmpresaSeleccionada(Empresa empresaSeleccionada) {
+        this.empresaSeleccionada = empresaSeleccionada;
+    }
+
     /**
      * Creates new form JFBuscarCliente
      */
-    public JFBuscarCliente(String tipo)  {
+    public JFBuscarCliente(String tipo,Dialog f, boolean b) {
+        super(f, b);
         initComponents();
+        LogicaNegocio = new ClientesBL();
+        listaEmpresa=new  ArrayList<Empresa>(LogicaNegocio.listarEmpresa());
+        listaNatural = new ArrayList<Natural>(LogicaNegocio.listarNatural());
         this.tipo = tipo;
         
-        if(tipo=="Empresa"){
-            TableColumn c1 = new TableColumn();
-            c1.setHeaderValue("RUC");
-            tableCliente.addColumn(c1);
-            TableColumn c2= new TableColumn();
-            c2.setHeaderValue("RAZON SOCIAL");
-            tableCliente.addColumn(c2);
+        DefaultTableModel modelo = (DefaultTableModel) tableCliente.getModel();
+        if(tipo=="Empresa"){      
+            modelo.addColumn("RUC");
+            modelo.addColumn("RAZON SOCIAL");
+            
+            Object[] fila = new Object[2]; 
+            for(int i=0; i<listaEmpresa.size(); i++){
+                fila[0] = listaEmpresa.get(i).getRuc();
+                fila[1] = listaEmpresa.get(i).getRazonSocial();
+                modelo.addRow(fila);
+            } 
+            
         }else{
-            TableColumn c1 = new TableColumn();
-            c1.setHeaderValue("DNI");
-            tableCliente.addColumn(c1);
-            TableColumn c2 = new TableColumn();
-            c2.setHeaderValue("NOMBRE");
-            tableCliente.addColumn(c2);
+            modelo.addColumn("DNI");
+            modelo.addColumn("NOMBRE");
+            
+            Object[] fila = new Object[2]; 
+            for(int i=0; i<listaNatural.size(); i++){
+                fila[0] = listaNatural.get(i).getDNI();
+                fila[1] = listaNatural.get(i).getNombre();
+                modelo.addRow(fila);
+            }
         }
         
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -59,6 +111,7 @@ public class JFBuscarCliente extends javax.swing.JFrame {
         tableCliente = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         btnCerrar = new javax.swing.JButton();
+        btnSelect = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -82,6 +135,13 @@ public class JFBuscarCliente extends javax.swing.JFrame {
             }
         });
 
+        btnSelect.setText("Seleccionar");
+        btnSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,6 +152,8 @@ public class JFBuscarCliente extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSelect)
+                        .addGap(27, 27, 27)
                         .addComponent(btnCerrar))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(39, Short.MAX_VALUE))
@@ -104,7 +166,9 @@ public class JFBuscarCliente extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnCerrar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnCerrar)
+                        .addComponent(btnSelect)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
@@ -119,6 +183,23 @@ public class JFBuscarCliente extends javax.swing.JFrame {
         JFramePedidos.value=0;
         super.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectActionPerformed
+        // TODO add your handling code here:
+        try{
+            if(tipo=="Empresa"){
+                setEmpresaSeleccionada(new Empresa());
+                setEmpresaSeleccionada(listaEmpresa.get(tableCliente.getSelectedRow()));
+            }else{
+                setNaturalSeleccionado(new Natural());
+                setNaturalSeleccionado(listaNatural.get(tableCliente.getSelectedRow()));
+            }
+            JFramePedidos.value=2;
+            super.dispose();
+        }catch(Exception e){
+            System.out.println(e.toString());
+        }
+    }//GEN-LAST:event_btnSelectActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,6 +243,7 @@ public class JFBuscarCliente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton btnSelect;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableCliente;

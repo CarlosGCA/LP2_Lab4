@@ -8,6 +8,7 @@ package Controlador;
 import AccesoData.ClientesAD;
 import Modelo.Empresa;
 import Modelo.Natural;
+import java.util.ArrayList;
 
 /**
  *
@@ -25,5 +26,13 @@ public class ClientesBL {
     }
     public void registrarEmpresa(Empresa emp){
         accesoDatos.registrarEmp(emp);
+    }
+    
+    public ArrayList<Natural> listarNatural(){
+        return accesoDatos.listarNaturales();
+    }
+    
+    public ArrayList<Empresa> listarEmpresa(){
+        return accesoDatos.listarEmpresa();
     }
 }

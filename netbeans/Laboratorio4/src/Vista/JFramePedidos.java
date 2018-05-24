@@ -13,13 +13,14 @@ import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 
 import Modelo.Producto;
+import java.awt.Dialog;
 /**
  *
  * @author Kathy Ruiz :)
  */
 
 
-public class JFramePedidos extends javax.swing.JFrame {
+public class JFramePedidos extends javax.swing.JDialog {
     public static int value;
     public class estadoFormulario extends Thread{
         public void run(){
@@ -55,13 +56,14 @@ public class JFramePedidos extends javax.swing.JFrame {
     public static JFBuscarCliente objeBuscarCli;
     
     //JFPrincipal2 padre;
-    public JFramePedidos(){
+    public JFramePedidos(Dialog f, boolean b) {
+        super(f, b);
         initComponents();
-        
         estadoFormulario ef = new estadoFormulario();
-        value=0;
-        ef.start();
-        
+        //value=0;
+        //ef.start();
+        txtFechaPed.setEnabled(false);
+        txtProducto.setEnabled(false);
         setLocationRelativeTo(null);
         setResizable(false);
         setTitle("Ventana Principal");
@@ -205,6 +207,12 @@ public class JFramePedidos extends javax.swing.JFrame {
         txtRuc1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRuc1ActionPerformed(evt);
+            }
+        });
+
+        txtRazonS1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRazonS1ActionPerformed(evt);
             }
         });
 
@@ -438,9 +446,18 @@ public class JFramePedidos extends javax.swing.JFrame {
     private void btnBuscarDNIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarDNIActionPerformed
         // TODO add your handling code here:
         String tipo = (String) cboTipoCliente.getSelectedItem();
-        objeBuscarCli= new JFBuscarCliente(tipo);
+        objeBuscarCli = new JFBuscarCliente(tipo,this,true);
         objeBuscarCli.setVisible(true);
-        value = 1;
+        
+        if(cboTipoCliente.getSelectedItem()=="Empresa"){
+            txtRuc1.setText(objeBuscarCli.getEmpresaSeleccionada().getRuc());
+            txtRazonS1.setText(objeBuscarCli.getEmpresaSeleccionada().getRazonSocial());
+        }else{
+            txtRuc1.setText(objeBuscarCli.getNaturalSeleccionado().getDNI());
+            txtRazonS1.setText(objeBuscarCli.getNaturalSeleccionado().getNombre());
+        }
+        
+        //value = 1;
     }//GEN-LAST:event_btnBuscarDNIActionPerformed
 
     private void txtFechaPedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaPedActionPerformed
@@ -452,7 +469,6 @@ public class JFramePedidos extends javax.swing.JFrame {
          if(cboTipoCliente.getSelectedItem()=="Empresa"){
             lblRuc1.setText("RUC:");
             lblRazonS1.setText("Razon Social:");
-            
             //lblNombre2.setVisible(false);
             //txtNombre2.setVisible(false);
 //            lblImagEmpresa.setVisible(true);
@@ -465,14 +481,21 @@ public class JFramePedidos extends javax.swing.JFrame {
 //            lblImagEmpresa.setVisible(false);
 //            lblImagPersona.setVisible(true);
         }
+        txtRuc1.setText("");
+        txtRazonS1.setText("");
     }//GEN-LAST:event_cboTipoClienteActionPerformed
 
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
         // TODO add your handling code here:
-        objeBuscarPro= new JBuscarProducto();
+        objeBuscarPro= new JBuscarProducto(this,true);
         objeBuscarPro.setAlwaysOnTop(true);
         objeBuscarPro.setVisible(true);
-        value = 1;
+        //value = 1;
+        Producto productoSeleccionado = new Producto();
+        productoSeleccionado = objeBuscarPro.getProductoElegido();
+        txtProducto.setText(productoSeleccionado.getnombProducto());
+        txtProducto.setEnabled(false);
+        System.out.println(productoSeleccionado.getnombProducto());
     }//GEN-LAST:event_btnBuscarProductoActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -495,6 +518,10 @@ public class JFramePedidos extends javax.swing.JFrame {
     private void txtProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtProductoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtProductoActionPerformed
+
+    private void txtRazonS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRazonS1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRazonS1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -528,7 +555,7 @@ public class JFramePedidos extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try{
-                    new JFramePedidos().setVisible(true);
+                    new JFramePedidos(null,false).setVisible(true);
                 }catch(Exception ex){
                     System.out.println(ex.getMessage());
                 }

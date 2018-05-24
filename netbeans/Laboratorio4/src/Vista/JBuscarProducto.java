@@ -6,7 +6,9 @@
 package Vista;
 
 import Controlador.ProductoBL;
+import Modelo.Natural;
 import Modelo.Producto;
+import java.awt.Dialog;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author LENOVO
  */
-public class JBuscarProducto extends javax.swing.JFrame {
+public class JBuscarProducto extends javax.swing.JDialog {
     private ProductoBL logicaNegocio;
     private ArrayList<Producto> listaProductos;
     private Producto productoElegido;
@@ -37,7 +39,8 @@ public class JBuscarProducto extends javax.swing.JFrame {
     /**
      * Creates new form JBuscarProducto
      */
-    public JBuscarProducto() {
+    public JBuscarProducto(Dialog f, boolean b) {
+        super(f, b);
         
         initComponents();  
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -184,7 +187,7 @@ public class JBuscarProducto extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JBuscarProducto().setVisible(true);
+                new JBuscarProducto(null,false).setVisible(true);
             }
         });
     }

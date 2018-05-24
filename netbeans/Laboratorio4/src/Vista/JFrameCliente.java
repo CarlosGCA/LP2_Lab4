@@ -8,6 +8,8 @@ package Vista;
 import Controlador.ClientesBL;
 import Modelo.Empresa;
 import Modelo.Natural;
+import java.awt.Dialog;
+import java.awt.Frame;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
@@ -16,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author Kathy Ruiz :)
  */
-public class JFrameCliente extends javax.swing.JFrame {
+public class JFrameCliente extends javax.swing.JDialog {
 
     private Natural cliNat;
     private Empresa cliEmp;
@@ -25,7 +27,8 @@ public class JFrameCliente extends javax.swing.JFrame {
     /**
      * Creates new form JFrameCliente
      */
-    public JFrameCliente() {
+    public JFrameCliente(Dialog f, boolean b) {
+        super(f, b);
         initComponents();
         lblNombre2.setVisible(false);
         txtNombre2.setVisible(false);
@@ -37,12 +40,12 @@ public class JFrameCliente extends javax.swing.JFrame {
         logicaNeg= new ClientesBL();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                JFPrincipalVendedor.value = 0;
-            }
-        });
+//        addWindowListener(new WindowAdapter() {
+//            @Override
+//            public void windowClosing(WindowEvent e) {
+//                JFPrincipalVendedor.value = 0;
+//            }
+//        });
     }
 
     /**
@@ -279,7 +282,8 @@ public class JFrameCliente extends javax.swing.JFrame {
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         // TODO add your handling code here:
-        JFPrincipalVendedor.value = 0;
+        //JFPrincipalVendedor.value = 0;
+        System.out.println("clientes: "+ logicaNeg.listarEmpresa().size());
         super.dispose();
     }//GEN-LAST:event_btnCerrarActionPerformed
 
@@ -347,7 +351,7 @@ public class JFrameCliente extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new JFrameCliente().setVisible(true);
+                    new JFrameCliente(null,false).setVisible(true);
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }

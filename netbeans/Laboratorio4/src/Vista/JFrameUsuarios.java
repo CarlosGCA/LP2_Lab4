@@ -12,15 +12,21 @@ import Modelo.CuentaUsuario;
 import Modelo.Empleado;
 import Modelo.Permiso;
 import Modelo.Turno;
+import java.awt.Dialog;
+import java.awt.Frame;
+import static java.awt.image.ImageObserver.PROPERTIES;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
  * @author alulab14
  */
-public class JFrameUsuarios extends javax.swing.JDialog{
+public class JFrameUsuarios extends javax.swing.JFrame{
 
     /**
      * Creates new form JFrameUsuarios
@@ -49,12 +55,12 @@ public class JFrameUsuarios extends javax.swing.JDialog{
         
         controllerPuestoBL = null;
         controllerTurnoBL = null;
-       
-        
     }
 
-    public JFrameUsuarios() {
+    public JFrameUsuarios(Dialog f, Boolean b){   
+        super();
         initComponents();
+        
         logicaNeg = new UsuarioBL();
         inicializarDatos();
     }
@@ -391,7 +397,7 @@ public class JFrameUsuarios extends javax.swing.JDialog{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameUsuarios().setVisible(true);
+                new JFrameUsuarios(null,false).setVisible(true);
             }
         });
     }
