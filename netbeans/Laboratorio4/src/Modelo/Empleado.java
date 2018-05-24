@@ -92,8 +92,6 @@ public class Empleado {
         return turno;
     }
     
-<<<<<<< HEAD
-=======
 
     public Puesto getPuesto() {
         return puesto;
@@ -103,7 +101,6 @@ public class Empleado {
     public void setPuesto(Puesto puesto) {
         this.puesto = puesto;
     }
->>>>>>> Lab7_Kat
 //    @Override
 //    public String toString() {
 //        return turno.toString();

@@ -55,11 +55,7 @@ public class JFrameUsuarios extends javax.swing.JFrame {
     public JFrameUsuarios() {
         initComponents();
         logicaNeg = new UsuarioBL();
-<<<<<<< HEAD
-
-=======
         inicializarDatos();
->>>>>>> Lab7_Kat
     }
 
     /**
@@ -136,10 +132,6 @@ public class JFrameUsuarios extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< HEAD
-        jcbRol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "JEFE PANADERO", "PANADERO", "SUPERVISOR" }));
-=======
->>>>>>> Lab7_Kat
         jcbRol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbRolActionPerformed(evt);
@@ -176,11 +168,7 @@ public class JFrameUsuarios extends javax.swing.JFrame {
 
         btnEliminar.setText("Eliminar");
 
-<<<<<<< HEAD
-        jLabel13.setText("(DD/MM/YYYY)");
-=======
         fechaNacimientoChooser.setDateFormatString("d/M/yyyy\n");
->>>>>>> Lab7_Kat
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -314,9 +302,6 @@ public class JFrameUsuarios extends javax.swing.JFrame {
         emp = new Empleado();
         emp.setNombre(txtNombres.getText());
         emp.setApellido(txtApellido.getText());
-<<<<<<< HEAD
-        emp.setFechaNac(txtFechaNac.getText());
-=======
         
         Date  dateChooser = fechaNacimientoChooser.getDate();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -324,7 +309,6 @@ public class JFrameUsuarios extends javax.swing.JFrame {
       
         
         emp.setFechaNac(fechaString);
->>>>>>> Lab7_Kat
         if (cbFem.getText().equals('F')) {
             emp.setSexo('F');
         } else {
@@ -372,13 +356,10 @@ public class JFrameUsuarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbRolActionPerformed
 
-<<<<<<< HEAD
-=======
     private void jcbTurnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTurnoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbTurnoActionPerformed
 
->>>>>>> Lab7_Kat
     /**
      * @param args the command line arguments
      */
