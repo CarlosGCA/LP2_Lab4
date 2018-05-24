@@ -50,6 +50,7 @@ public class InsumoAD {
             System.out.println(e.getMessage());
         }
         return lista;
+        
     }
     
     public ArrayList<Insumo> listarInsumos(){
@@ -77,19 +78,23 @@ public class InsumoAD {
         return lista;
     }
     
-    public void registarUsuario(int _id,String _nombre,int _medida){
+    public int registarUsuario(int _id,String _nombre,int _medida){
+        int id=0;
         try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g7", "inf282g7", "0mvK88");
-            CallableStatement sentencia = con.prepareCall("{call REGISTRAR_INSUMO(?,?,?)}"); 
-            sentencia.setInt("idInsumo", _id);
-            sentencia.setString("Nombre", _nombre);
-            sentencia.setInt("UnidadDeMedida_idUnidadDeMedida", _medida);
-            sentencia.execute();            
+            CallableStatement sentencia = con.prepareCall("{call REGISTRAR_INSUMO(?,?,?,?)}");
+            sentencia.registerOutParameter("_idregistrado", java.sql.Types.INTEGER);
+            sentencia.setInt("_id", _id);
+            sentencia.setString("_nombre", _nombre);
+            sentencia.setInt("_idmedida", _medida);
+            sentencia.execute();
+            id = sentencia.getInt("_idregistrado");
             con.close();
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+        return id;
     }
     
 }

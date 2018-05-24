@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import Controlador.InsumoBL;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 
 public class JFrameInsumos extends javax.swing.JFrame {
 
@@ -114,6 +115,8 @@ public class JFrameInsumos extends javax.swing.JFrame {
             }
         });
 
+        textID.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -189,11 +192,13 @@ public class JFrameInsumos extends javax.swing.JFrame {
         for(int i=0;i<unidadesMedida.size();i++){
             String aux = unidadesMedida.get(i);
             if(auxMedida.equals(aux)){
-                medida +=1;
+                medida +=i;
                 break;
             };
         }        
-        logicaNegocio.registrarInsumo(idInsumo, nombre,medida );
+        int resul=logicaNegocio.registrarInsumo(idInsumo, nombre,medida );
+        if(resul >0) 
+            JOptionPane.showMessageDialog(null, "Se ha agregado con exito", "MENSAJE", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**

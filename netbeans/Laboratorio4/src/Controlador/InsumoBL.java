@@ -28,7 +28,7 @@ public class InsumoBL {
         return accesoDatos.listarInsumos();
     }
     
-    public void registrarInsumo(int id,String nombre,int medida){
-        accesoDatos.registarUsuario(id, nombre, medida);
+    public int registrarInsumo(int id,String nombre,int medida){
+        return accesoDatos.registarUsuario(id, nombre, medida);
     }
 }
