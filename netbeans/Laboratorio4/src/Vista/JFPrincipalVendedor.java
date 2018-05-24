@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import java.awt.Frame;
 import java.awt.Image;
 import java.util.concurrent.Semaphore;
 import javax.swing.Icon;
@@ -14,7 +15,7 @@ import javax.swing.ImageIcon;
  *
  * @author Kathy Ruiz :)
  */
-public class JFPrincipalVendedor extends javax.swing.JFrame {
+public class JFPrincipalVendedor extends javax.swing.JDialog {
     /**
      * Creates new form JFrameCliente
      */
@@ -44,7 +45,8 @@ public class JFPrincipalVendedor extends javax.swing.JFrame {
     public static JFrameCliente obje2;
     
     
-    public JFPrincipalVendedor() {
+    public JFPrincipalVendedor(Frame f, boolean b) {
+        super(f, b);
         initComponents();
         
         estadoFormulario ef = new estadoFormulario();
@@ -83,7 +85,7 @@ public class JFPrincipalVendedor extends javax.swing.JFrame {
         btnPedidos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         btnCliente.setText("CLIENTES");
@@ -192,7 +194,7 @@ public class JFPrincipalVendedor extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                  try{
-                    new JFPrincipalVendedor().setVisible(true);
+                    new JFPrincipalVendedor(null,false).setVisible(true);
                 }catch(Exception e){
                     System.out.println(e.getMessage());
                 }

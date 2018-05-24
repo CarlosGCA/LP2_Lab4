@@ -5,16 +5,19 @@
  */
 package Vista;
 
+import java.awt.Frame;
+
 /**
  *
  * @author alulab14
  */
-public class JFPrincipalAdmi extends javax.swing.JFrame {
+public class JFPrincipalAdmi extends javax.swing.JDialog {
 
     /**
      * Creates new form JFPrincipalAdmi
      */
-    public JFPrincipalAdmi() {
+    public JFPrincipalAdmi(Frame f, boolean b) {
+        super(f, b);
         initComponents();
     }
 
@@ -49,7 +52,7 @@ public class JFPrincipalAdmi extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Administrador");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(3, 3, 3, 3, new java.awt.Color(0, 204, 102)));
@@ -337,7 +340,7 @@ public class JFPrincipalAdmi extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFPrincipalAdmi().setVisible(true);
+                new JFPrincipalAdmi(null,false).setVisible(true);
             }
         });
     }

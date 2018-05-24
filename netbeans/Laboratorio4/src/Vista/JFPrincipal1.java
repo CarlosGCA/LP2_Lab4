@@ -152,14 +152,12 @@ public class JFPrincipal1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "MENSAJE", JOptionPane.INFORMATION_MESSAGE);
         else{
             if(usuario.getpermise().getIdPermiso()==2){
-                JFPrincipalVendedor intfzPan = new JFPrincipalVendedor();
+                JFPrincipalVendedor intfzPan = new JFPrincipalVendedor(this,true);
                 intfzPan.setVisible(true);
-                this.setVisible(false);
             }
             else if(usuario.getpermise().getIdPermiso()==3){
-                JFPrincipalAdmi intrfSuper = new JFPrincipalAdmi();
+                JFPrincipalAdmi intrfSuper = new JFPrincipalAdmi(this,true);
                 intrfSuper.setVisible(true);
-                this.setVisible(false);
             }else
                 JOptionPane.showMessageDialog(null, "No tiene permiso", "MENSAJE", JOptionPane.INFORMATION_MESSAGE);
         }
