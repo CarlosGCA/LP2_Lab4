@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Empleado {
 
-
     private int ID;
     private int DNI;
     private String nombre;
@@ -13,6 +12,7 @@ public class Empleado {
     private String fechaNac;
     private Turno turno;
     private CuentaUsuario usuario;
+    private Puesto puesto;
 
     public Empleado(int ID,int DNI, String nombre, String apellido, char sexo, String fechaNac, Turno turno, CuentaUsuario usuario) {
         setID(ID);
@@ -92,6 +92,15 @@ public class Empleado {
         return turno;
     }
     
+
+    public Puesto getPuesto() {
+        return puesto;
+    }
+
+
+    public void setPuesto(Puesto puesto) {
+        this.puesto = puesto;
+    }
 //    @Override
 //    public String toString() {
 //        return turno.toString();
