@@ -5,6 +5,9 @@
  */
 package Vista;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author Sebastian
@@ -16,6 +19,14 @@ public class JFrameProductos extends javax.swing.JFrame {
      */
     public JFrameProductos() {
         initComponents();
+        
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new WindowAdapter(){
+            @Override
+            public void windowClosing(WindowEvent e) {
+                JFramePedidos.value=0;
+            }
+        });
     }
 
     /**

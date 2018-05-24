@@ -1,5 +1,4 @@
 package Modelo;
-enum unidadMed{kg,lt,cajas,unid};
 
 public class Insumo{
 	private int idInsumo;
