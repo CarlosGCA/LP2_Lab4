@@ -9,7 +9,9 @@
  */
 package AccesoData;
 
+import Modelo.CuentaUsuario;
 import Modelo.Empleado;
+import Modelo.Permiso;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
@@ -58,7 +60,7 @@ public class UsuarioAD {
         }
     }
     
-    public void buscarUsuarioLogin(String nombre){
+    public CuentaUsuario buscarUsuarioLogin(String nombre){
         try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://quilla.lab.inf.pucp.edu.pe/inf282g7", "inf282g7", "0mvK88");
@@ -70,10 +72,21 @@ public class UsuarioAD {
             cs.setString(1, nombre);
             ResultSet rs = cs.executeQuery();
             
+            while(rs.next()){
+                CuentaUsuario cu = new CuentaUsuario();
+                cu.setcontrasenha(rs.getString("Contrasena"));
+                Permiso per = new Permiso();
+                per.setIdPermiso(rs.getInt("Permiso_idPermiso"));
+                cu.setpermise(per);
+                return cu;
+            }
+            
+            return null;
+                
             
         }catch (Exception e) {
             System.out.println(e.toString());
-            
+            return null;
         }
     }
 }

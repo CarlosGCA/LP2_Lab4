@@ -6,6 +6,7 @@
 package Controlador;
 
 import AccesoData.UsuarioAD;
+import Modelo.CuentaUsuario;
 import Modelo.Empleado;
 
 /**
@@ -21,6 +22,10 @@ public class UsuarioBL {
     
     public void registrarProfesor(Empleado emp){
         accesoDatos.registrar(emp);
+    }
+    
+    public CuentaUsuario buscarUsuarioLogin(String nombre){
+        return accesoDatos.buscarUsuarioLogin(nombre);
     }
     
 }

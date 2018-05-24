@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.UsuarioBL;
 import Modelo.*;
 import java.util.ArrayList;
 import java.awt.Image;
@@ -24,11 +25,15 @@ public class JFPrincipal1 extends javax.swing.JFrame {
     /**
      * Creates new form JFPrincipal1
      */
-    ArrayList<CuentaUsuario> usuarios;
+    private ArrayList<CuentaUsuario> usuarios;
+    private CuentaUsuario usuario;
+    private UsuarioBL LogicaNegocio;
     
     public JFPrincipal1() throws Exception{
         initComponents();
+        LogicaNegocio = new UsuarioBL();
         usuarios = new ArrayList<CuentaUsuario>();
+        
     }
 
     /**
@@ -136,23 +141,32 @@ public class JFPrincipal1 extends javax.swing.JFrame {
 
         //this.setVisible(false);
         //this.setVisible(false);
-        String user = txtUsuario.getText();
+        String nombre = txtUsuario.getText();
         String password = jPassword.getText();
         
-        int existe=0;
-        for(CuentaUsuario u: usuarios){
-            if(user.equals(u.getnombreUsuario())){
-                existe=1;
-                if(password.equals(u.getcontrasenha())){
-                    JFPrincipalVendedor obje= new JFPrincipalVendedor();
-                    obje.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "MENSAJE", JOptionPane.INFORMATION_MESSAGE);             
-                }
-            }
+        usuario = LogicaNegocio.buscarUsuarioLogin(nombre);
+        
+        if(usuario==null)
+            JOptionPane.showMessageDialog(null, "Usuario no registrado", "MENSAJE", JOptionPane.INFORMATION_MESSAGE);
+        else if(!password.equals(usuario.getcontrasenha()))
+            JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "MENSAJE", JOptionPane.INFORMATION_MESSAGE);
+        else{
+            System.out.println("Exito");
         }
-        if(existe==0)JOptionPane.showMessageDialog(null, "Usuario no registrado", "MENSAJE", JOptionPane.INFORMATION_MESSAGE);   
+//        int existe=0;
+//        for(CuentaUsuario u: usuarios){
+//            if(user.equals(u.getnombreUsuario())){
+//                existe=1;
+//                if(password.equals(u.getcontrasenha())){
+//                    JFPrincipalVendedor obje= new JFPrincipalVendedor();
+//                    obje.setVisible(true);
+//                    this.setVisible(false);
+//                }else{
+//                    JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "MENSAJE", JOptionPane.INFORMATION_MESSAGE);             
+//                }
+//            }
+//        }
+      
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
