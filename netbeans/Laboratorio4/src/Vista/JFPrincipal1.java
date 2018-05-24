@@ -151,7 +151,17 @@ public class JFPrincipal1 extends javax.swing.JFrame {
         else if(!password.equals(usuario.getcontrasenha()))
             JOptionPane.showMessageDialog(null, "Contraseña Incorrecta", "MENSAJE", JOptionPane.INFORMATION_MESSAGE);
         else{
-            System.out.println("Exito");
+            if(usuario.getpermise().getIdPermiso()==2){
+                JFPrincipalVendedor intfzPan = new JFPrincipalVendedor();
+                intfzPan.setVisible(true);
+                this.setVisible(false);
+            }
+            else if(usuario.getpermise().getIdPermiso()==3){
+                JFPrincipalAdmi intrfSuper = new JFPrincipalAdmi();
+                intrfSuper.setVisible(true);
+                this.setVisible(false);
+            }else
+                JOptionPane.showMessageDialog(null, "No tiene permiso", "MENSAJE", JOptionPane.INFORMATION_MESSAGE);
         }
 //        int existe=0;
 //        for(CuentaUsuario u: usuarios){
